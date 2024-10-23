@@ -125,7 +125,7 @@
            
             <button class="tab" id="clockTab">Clock</button>
             <button class="tab" id="stopwatchTab">Stopwatch</button>
-            <button class="tab" id="timerTab">Timer</button>
+            
         </div>
 
         
@@ -142,15 +142,7 @@
                     <button id="resetStopwatch">Reset</button>
                 </div>
             </div>
-            <div id="timer" class="tab-content hidden">
-                <h2>Timer</h2>
-                <div id="timerDisplay">00:00:00.000</div><br>
-                <input type="number" id="minutes" placeholder="Minutes" min="0">
-                <input type="number" id="seconds" placeholder="Seconds" min="0">
-                <input type="number" id="milliseconds" placeholder="Milli-seconds" min="0" max="999">
-                <button id="startTimer">Start</button>
-                <button id="resetTimer">Reset</button>
-            </div>
+            
         </div>
     </div>
     <script >
@@ -162,13 +154,12 @@
 
             document.getElementById("clockTab").addEventListener("click", showClock);
             document.getElementById("stopwatchTab").addEventListener("click", showStopwatch);
-            document.getElementById("timerTab").addEventListener("click", showTimer);
+            
             document.getElementById("startStopwatch").addEventListener("click", startStopwatch);
             document.getElementById("stopStopwatch").addEventListener("click", stopStopwatch);
             document.getElementById("resetStopwatch").addEventListener("click", resetStopwatch);
-            document.getElementById("startTimer").addEventListener("click", startTimer);
-            document.getElementById("resetTimer").addEventListener("click", resetTimer);
-
+            
+            
             function showClock() {
                 hideAll();
                 document.getElementById("clock").classList.remove("hidden");
@@ -190,7 +181,7 @@
             function startStopwatch() {
                 if (!stopwatchInterval) {
                     stopwatchInterval = setInterval(() => {
-                        stopwatchTime++;
+                        stopwatchTime+=10;
                         document.getElementById("stopwatchDisplay").innerText = formatTime(stopwatchTime);
                     }, 10); // Update every 10 milliseconds
                 }
